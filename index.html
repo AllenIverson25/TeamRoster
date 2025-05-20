@@ -19,6 +19,7 @@
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
         <!-- Custom CSS -->
         <link rel="stylesheet" href="style.css">
     </head>
@@ -29,7 +30,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
                 <div class="container">
                     <a class="navbar-brand d-flex align-items-center" href="#">
-                        <img src="https://picsum.photos/id/230/50/50" alt="76ers Logo" class="team-logo me-2">
+                        <img src="https://cdn.nba.com/logos/nba/1610612755/primary/L/logo.svg" alt="76ers Logo" class="team-logo me-2" width="50" height="50">
                         <span>Philadelphia 76ers</span>
                     </a>
                     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,17 +39,16 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav ms-auto">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="#hero">Home</a>
+                                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#roster">Roster</a>
+                                <a class="nav-link" href="roster.html">Roster</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#about">Team History</a>
+                                <a class="nav-link" href="about.html">Team History</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="#stats">Stats</a>
-                            </li>
+
+
                         </ul>
                     </div>
                 </div>
@@ -56,83 +56,66 @@
         </header>
 
         <main>
-            <!-- Hero Section -->
-            <section id="hero" class="hero-section">
-                <div class="container">
-                    <div class="row align-items-center min-vh-75">
-                        <div class="col-lg-6 text-center text-lg-start">
+            <!-- Video Hero Section -->
+            <section id="hero" class="video-hero-section">
+                <!-- Video Background -->
+                <div class="video-background">
+                    <div class="video-foreground">
+                        <iframe src="allen.mp4" frameborder="0" allowfullscreen></iframe>
+                    </div>
+                    <div class="video-overlay"></div>
+                </div>
+
+                <!-- Hero Content -->
+                <div class="container position-relative">
+                    <div class="row align-items-center min-vh-100">
+                        <div class="col-lg-6 text-center text-lg-start hero-content">
                             <h1 class="display-4 fw-bold text-white mb-4">2001-2002 Philadelphia 76ers</h1>
                             <p class="lead text-white mb-4">The legendary team that followed their Eastern Conference championship season. Led by Allen Iverson and featuring a roster of defensive specialists and role players.</p>
-                            <a href="#roster" class="btn btn-light btn-lg px-4 me-md-2">Meet The Team</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- Roster Section -->
-            <section id="roster" class="py-5">
-                <div class="container">
-                    <div class="section-heading text-center mb-5">
-                        <h2 class="display-5 fw-bold mb-3">Team Roster</h2>
-                        <p class="lead text-muted">The stars and role players who made up the 2001-2002 Philadelphia 76ers</p>
-                    </div>
-
-                    <!-- Filter and Sort Options -->
-                    <div class="row mb-4">
-                        <div class="col-md-8">
-                            <div class="position-filters d-flex flex-wrap gap-2">
-                                <button class="btn btn-outline-primary position-filter active" data-position="All">All Positions</button>
-                                <button class="btn btn-outline-primary position-filter" data-position="PG">Point Guards</button>
-                                <button class="btn btn-outline-primary position-filter" data-position="SG">Shooting Guards</button>
-                                <button class="btn btn-outline-primary position-filter" data-position="SF">Small Forwards</button>
-                                <button class="btn btn-outline-primary position-filter" data-position="PF">Power Forwards</button>
-                                <button class="btn btn-outline-primary position-filter" data-position="C">Centers</button>
+                            <div class="hero-buttons">
+                                <a href="roster.html" class="btn btn-light btn-lg px-4 me-md-2">Meet The Team</a>
+                                <a href="about.html" class="btn btn-outline-light btn-lg px-4">Team History</a>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <select id="sortOptions" class="form-select">
-                                <option value="lastName-asc">Sort by Name (A-Z)</option>
-                                <option value="lastName-desc">Sort by Name (Z-A)</option>
-                                <option value="number-asc">Sort by Jersey Number (Low-High)</option>
-                                <option value="number-desc">Sort by Jersey Number (High-Low)</option>
-                                <option value="age-asc">Sort by Age (Youngest First)</option>
-                                <option value="age-desc">Sort by Age (Oldest First)</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <!-- Roster Grid -->
-                    <div id="rosterGrid" class="row g-4">
-                        <!-- Player cards will be dynamically inserted here -->
                     </div>
                 </div>
             </section>
 
-            <!-- Team History Section -->
-            <section id="about" class="py-5 bg-light">
+
+
+            <!-- Team Highlights Section -->
+            <section class="py-5 bg-light">
                 <div class="container">
                     <div class="row align-items-center">
                         <div class="col-lg-6 mb-4 mb-lg-0">
-                            <h2 class="display-5 fw-bold mb-3">Team History</h2>
-                            <p class="lead">The 2001-2002 Philadelphia 76ers were coming off an NBA Finals appearance in the previous season where they faced the Los Angeles Lakers.</p>
-                            <p>Led by Allen Iverson, the reigning MVP, the team was known for their gritty defensive style and "never say die" attitude. The addition of defensive powerhouse Dikembe Mutombo midway through the previous season reinforced their identity as a defensive-minded team.</p>
-                            <p>Despite high expectations following their Finals run, the 2001-2002 season was challenging due to injuries, with Allen Iverson missing 22 games. The team finished with a 43-39 record and lost in the first round of the playoffs to the Boston Celtics.</p>
+                            <h2 class="display-5 fw-bold mb-3">Team Highlights</h2>
+                            <p class="lead">The 2001-2002 Philadelphia 76ers featured one of the most exciting players in NBA history - Allen Iverson.</p>
+                            <p>Despite standing at just 6'0", Iverson was a scoring machine, leading the league with 31.4 points per game during the 2001-2002 season. His crossover dribble, quickness, and fearless drives to the basket made him nearly impossible to guard.</p>
+                            <p>The team was built around Iverson's talents, with defensive specialists like Dikembe Mutombo, Eric Snow, and Aaron McKie complementing his offensive prowess.</p>
+                            <div class="mt-4">
+                                <a href="about.html" class="btn btn-primary">Learn More About the Team</a>
+                            </div>
                         </div>
                         <div class="col-lg-6">
-                            <img src="https://picsum.photos/id/250/800/600" alt="76ers Team Photo" class="img-fluid rounded shadow">
+                            <div class="position-relative rounded overflow-hidden shadow-lg">
+                                <img src="imgs/team2.webp" alt="76ers Team Photo" class="img-fluid">
+                                <div class="overlay-caption">
+                                    <span>Allen Iverson leading the 76ers</span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <!-- Stats Section -->
-            <section id="stats" class="py-5">
+            <!-- Stats Preview Section -->
+            <section class="py-5">
                 <div class="container">
                     <div class="section-heading text-center mb-5">
                         <h2 class="display-5 fw-bold mb-3">Team Stats</h2>
                         <p class="lead text-muted">Key statistics from the 2001-2002 season</p>
                     </div>
-                    
+
                     <div class="row g-4">
                         <div class="col-md-6 col-lg-3">
                             <div class="stat-card text-center p-4 shadow-sm rounded">
@@ -159,8 +142,12 @@
                             </div>
                         </div>
                     </div>
+
+
                 </div>
             </section>
+
+
         </main>
 
         <footer class="bg-dark text-white py-4">

@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>2001-2002 Philadelphia 76ers Team Roster</title>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!-- Bootstrap CSS v5.3.2 -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+            crossorigin="anonymous"
+        />
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <!-- Google Fonts -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;600;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+
+    <body>
+        <header>
+            <!-- Navbar -->
+            <nav class="navbar navbar-expand-lg navbar-dark bg-primary sticky-top">
+                <div class="container">
+                    <a class="navbar-brand d-flex align-items-center" href="index.html">
+                        <img src="https://cdn.nba.com/logos/nba/1610612755/primary/L/logo.svg" alt="76ers Logo" class="team-logo me-2" width="50" height="50">
+                        <span>Philadelphia 76ers</span>
+                    </a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="index.html">Home</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" aria-current="page" href="roster.html">Roster</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="about.html">Team History</a>
+                            </li>
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <main>
+            <!-- Page Header -->
+            <section class="page-header text-center py-5 mb-5">
+                <div class="container">
+                    <h1 class="display-3 fw-bold text-white mb-3">Team Roster</h1>
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb justify-content-center">
+                            <li class="breadcrumb-item"><a href="index.html" class="text-white-50">Home</a></li>
+                            <li class="breadcrumb-item active text-white" aria-current="page">Roster</li>
+                        </ol>
+                    </nav>
+                </div>
+            </section>
+
+            <!-- Roster Section -->
+            <section class="py-5">
+                <div class="container">
+                    <div class="section-heading text-center mb-5">
+                        <h2 class="display-5 fw-bold mb-3">2001-2002 Philadelphia 76ers</h2>
+                        <p class="lead text-muted">The stars and role players who made up the 2001-2002 Philadelphia 76ers</p>
+                    </div>
+
+                    <!-- Filter and Sort Options -->
+                    <div class="row mb-4">
+                        <div class="col-md-8">
+                            <div class="position-filters d-flex flex-wrap gap-2">
+                                <button class="btn btn-outline-primary position-filter active" data-position="All">All Positions</button>
+                                <button class="btn btn-outline-primary position-filter" data-position="PG">Point Guards</button>
+                                <button class="btn btn-outline-primary position-filter" data-position="SG">Shooting Guards</button>
+                                <button class="btn btn-outline-primary position-filter" data-position="SF">Small Forwards</button>
+                                <button class="btn btn-outline-primary position-filter" data-position="PF">Power Forwards</button>
+                                <button class="btn btn-outline-primary position-filter" data-position="C">Centers</button>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <select id="sortOptions" class="form-select">
+                                <option value="lastName-asc">Sort by Name (A-Z)</option>
+                                <option value="lastName-desc">Sort by Name (Z-A)</option>
+                                <option value="number-asc">Sort by Jersey Number (Low-High)</option>
+                                <option value="number-desc">Sort by Jersey Number (High-Low)</option>
+                                <option value="age-asc">Sort by Age (Youngest First)</option>
+                                <option value="age-desc">Sort by Age (Oldest First)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Roster Grid -->
+                    <div id="rosterGrid" class="row g-4">
+                        <!-- Player cards will be dynamically inserted here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Team Stats Section -->
+            <section class="py-5 bg-light">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12 text-center mb-4">
+                            <h2 class="display-5 fw-bold">Team Overview</h2>
+                            <p class="lead text-muted">Key facts about the 2001-2002 76ers</p>
+                        </div>
+                    </div>
+                    <div class="row g-4">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="stat-card text-center p-4 shadow-sm rounded">
+                                <div class="display-4 text-primary fw-bold">12</div>
+                                <p class="text-muted mb-0">Players</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="stat-card text-center p-4 shadow-sm rounded">
+                                <div class="display-4 text-primary fw-bold">29.3</div>
+                                <p class="text-muted mb-0">Average Age</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="stat-card text-center p-4 shadow-sm rounded">
+                                <div class="display-4 text-primary fw-bold">6'7"</div>
+                                <p class="text-muted mb-0">Average Height</p>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="stat-card text-center p-4 shadow-sm rounded">
+                                <div class="display-4 text-primary fw-bold">3</div>
+                                <p class="text-muted mb-0">All-Stars</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="bg-dark text-white py-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h5>Philadelphia 76ers</h5>
+                        <p class="small">2001-2002 Season Roster</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <p class="small">&copy; 2025 Team Roster Project</p>
+                        <div class="social-links">
+                            <a href="#" class="text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="text-white me-2"><i class="fab fa-instagram"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Bootstrap JavaScript Libraries -->
+        <script
+            src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+            integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+            integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+            crossorigin="anonymous"
+        ></script>
+
+        <!-- Custom JavaScript -->
+        <script src="players.js"></script>
+        <script src="roster.js"></script>
+    </body>
+</html>

@@ -1,4 +1,17 @@
-// Player data for the 2001-2002 Philadelphia 76ers
+/**
+ * Player Data for the 2001-2002 Philadelphia 76ers
+ *
+ * This file contains an array of player objects with information about each player
+ * on the 2001-2002 Philadelphia 76ers roster. Each player object includes:
+ * - firstName: Player's first name
+ * - lastName: Player's last name
+ * - position: Player's position (PG, SG, SF, PF, C)
+ * - number: Jersey number
+ * - age: Player's age during the 2001-2002 season
+ * - height: Player's height
+ * - photo: URL to player's photo
+ * - hiddenDetail: Additional information about the player (revealed by "More Info" button)
+ */
 const players = [
     {
         firstName: "Allen",
@@ -7,7 +20,7 @@ const players = [
         number: 3,
         age: 26,
         height: "6'0\"",
-        photo: "https://picsum.photos/id/237/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/iversal01.jpg",
         hiddenDetail: "League MVP for the 2000-2001 season, led the Sixers to the NBA Finals and averaged 31.1 points per game."
     },
     {
@@ -17,7 +30,7 @@ const players = [
         number: 55,
         age: 35,
         height: "7'2\"",
-        photo: "https://picsum.photos/id/238/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/mutomdi01.jpg",
         hiddenDetail: "4-time NBA Defensive Player of the Year and known for his signature finger wag after blocking shots."
     },
     {
@@ -27,7 +40,7 @@ const players = [
         number: 8,
         age: 29,
         height: "6'5\"",
-        photo: "https://picsum.photos/id/239/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/mckieaa01.jpg",
         hiddenDetail: "Won the NBA Sixth Man of the Year Award for the 2000-2001 season."
     },
     {
@@ -37,7 +50,7 @@ const players = [
         number: 20,
         age: 28,
         height: "6'3\"",
-        photo: "https://picsum.photos/id/240/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/snower01.jpg",
         hiddenDetail: "Known for his defensive skills and leadership on the court. He was an NBA All-Defensive Second Team selection."
     },
     {
@@ -47,7 +60,7 @@ const players = [
         number: 9,
         age: 31,
         height: "6'8\"",
-        photo: "https://picsum.photos/id/241/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/lynchge01.jpg",
         hiddenDetail: "Known for his defensive prowess and rebounding ability."
     },
     {
@@ -57,7 +70,7 @@ const players = [
         number: 54,
         age: 33,
         height: "6'9\"",
-        photo: "https://picsum.photos/id/242/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/hillty01.jpg",
         hiddenDetail: "Was a key frontcourt contributor and made an All-Star appearance during his career."
     },
     {
@@ -67,7 +80,7 @@ const players = [
         number: 52,
         age: 32,
         height: "7'0\"",
-        photo: "https://picsum.photos/id/243/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/geigema01.jpg",
         hiddenDetail: "Was one of the highest-paid centers in the NBA during his time with the Sixers."
     },
     {
@@ -77,7 +90,7 @@ const players = [
         number: 5,
         age: 23,
         height: "5'11\"",
-        photo: "https://picsum.photos/id/244/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/claxtcr01.jpg",
         hiddenDetail: "Rookie in the 2001-2002 season who provided depth at the point guard position."
     },
     {
@@ -87,7 +100,7 @@ const players = [
         number: 19,
         age: 25,
         height: "6'5\"",
-        photo: "https://picsum.photos/id/245/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/bellra01.jpg",
         hiddenDetail: "Known for his defensive skills and three-point shooting."
     },
     {
@@ -97,7 +110,7 @@ const players = [
         number: 44,
         age: 34,
         height: "6'10\"",
-        photo: "https://picsum.photos/id/246/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/colemde01.jpg",
         hiddenDetail: "Former #1 overall draft pick who provided veteran leadership to the team."
     },
     {
@@ -107,7 +120,7 @@ const players = [
         number: 11,
         age: 26,
         height: "7'0\"",
-        photo: "https://picsum.photos/id/247/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/maccuto01.jpg",
         hiddenDetail: "Canadian center who was known for his efficient shooting and soft touch around the basket."
     },
     {
@@ -117,7 +130,7 @@ const players = [
         number: 33,
         age: 32,
         height: "6'10\"",
-        photo: "https://picsum.photos/id/248/400/500",
+        photo: "https://www.basketball-reference.com/req/202106291/images/players/blounco01.jpg",
         hiddenDetail: "Veteran center who provided defensive depth in the frontcourt."
     }
 ];

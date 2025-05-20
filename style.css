@@ -1,0 +1,728 @@
+/* ======================================
+   Global Styles
+   ====================================== */
+:root {
+    --sixers-blue: #006bb6;
+    --sixers-blue-dark: #005a9c;
+    --sixers-red: #ed174c;
+    --sixers-red-dark: #d01543;
+    --sixers-cream: #f9f9f1;
+    --sixers-gray: #c4ced4;
+    --sixers-navy: #002b5c;
+    --transition-fast: 0.3s ease;
+    --transition-medium: 0.5s ease;
+    --box-shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --box-shadow-md: 0 10px 20px rgba(0, 0, 0, 0.1);
+    --box-shadow-lg: 0 15px 30px rgba(0, 0, 0, 0.1);
+    --border-radius-sm: 0.25rem;
+    --border-radius-md: 0.5rem;
+    --border-radius-lg: 1rem;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    background-color: #f8f9fa;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Raleway', sans-serif;
+    font-weight: 700;
+}
+
+.text-primary {
+    color: var(--sixers-blue) !important;
+}
+
+.bg-primary {
+    background-color: var(--sixers-blue) !important;
+}
+
+.btn-primary {
+    background-color: var(--sixers-blue);
+    border-color: var(--sixers-blue);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--sixers-blue-dark);
+    border-color: var(--sixers-blue-dark);
+}
+
+.btn-outline-primary {
+    color: var(--sixers-blue);
+    border-color: var(--sixers-blue);
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background-color: var(--sixers-blue);
+    border-color: var(--sixers-blue);
+}
+
+/* ======================================
+   Header & Navigation
+   ====================================== */
+.navbar {
+    background-color: var(--sixers-blue) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    padding: 0.75rem 0;
+}
+
+.navbar-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+.team-logo {
+    border-radius: 50%;
+    border: 2px solid white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform var(--transition-fast);
+}
+
+.navbar-brand:hover .team-logo {
+    transform: rotate(10deg);
+}
+
+.nav-link {
+    font-weight: 500;
+    padding: 0.5rem 1rem !important;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: all var(--transition-fast);
+    transform: translateX(-50%);
+}
+
+.nav-link:hover::after, .nav-link.active::after {
+    width: 80%;
+}
+
+/* ======================================
+   Hero Sections
+   ====================================== */
+.hero-section {
+    background: linear-gradient(rgba(0, 107, 182, 0.8), rgba(0, 107, 182, 0.9)), url('https://cdn.nba.com/manage/2021/08/GettyImages-72403926-scaled-e1629913452308-784x523.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 120px 0;
+    margin-bottom: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 107, 182, 0.9) 0%, rgba(0, 43, 92, 0.8) 100%);
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Video Hero Section */
+.video-hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 30px;
+}
+
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+.video-foreground,
+.video-background iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.video-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(0, 107, 182, 0.85) 0%, rgba(0, 43, 92, 0.9) 100%);
+    z-index: 1;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: var(--border-radius-md);
+    backdrop-filter: blur(5px);
+    box-shadow: var(--box-shadow-lg);
+}
+
+.hero-buttons {
+    margin-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .video-hero-section {
+        height: auto;
+        min-height: 100vh;
+    }
+
+    .hero-content {
+        margin: 2rem 0;
+        padding: 1.5rem;
+    }
+}
+
+.page-header {
+    background: linear-gradient(135deg, var(--sixers-blue) 0%, var(--sixers-navy) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/basketball.png');
+    opacity: 0.1;
+}
+
+/* ======================================
+   Player Cards
+   ====================================== */
+.player-card {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    overflow: hidden;
+    border: none;
+    border-radius: var(--border-radius-md);
+    background-color: white;
+}
+
+.player-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--box-shadow-md);
+}
+
+.player-card .card-img-top {
+    height: 280px;
+    object-fit: cover;
+    border-bottom: 3px solid var(--sixers-blue);
+    transition: transform var(--transition-medium);
+}
+
+.player-card:hover .card-img-top {
+    transform: scale(1.05);
+}
+
+.jersey-number {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--sixers-red);
+    color: white;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--box-shadow-sm);
+    z-index: 2;
+}
+
+.more-info-btn {
+    transition: all var(--transition-fast);
+    border-radius: 50px;
+    padding: 0.375rem 1.25rem;
+}
+
+.more-info-btn:hover {
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* ======================================
+   Position Badges
+   ====================================== */
+.badge {
+    padding: 6px 12px;
+    font-weight: 500;
+    color: white !important;
+    border-radius: 50px;
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* ======================================
+   Filter Buttons
+   ====================================== */
+.position-filters, .gallery-filters {
+    margin-bottom: 20px;
+}
+
+.position-filter, .filter-btn {
+    border-color: var(--sixers-blue);
+    color: var(--sixers-blue);
+    border-radius: 50px;
+    padding: 0.375rem 1.25rem;
+    transition: all var(--transition-fast);
+}
+
+.position-filter:hover, .filter-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--box-shadow-sm);
+}
+
+.position-filter.active, .filter-btn.active {
+    background-color: var(--sixers-blue);
+    color: white;
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* ======================================
+   Stats Cards & Sections
+   ====================================== */
+.stat-card {
+    background-color: white;
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    border-radius: var(--border-radius-md);
+    border-top: 4px solid var(--sixers-blue);
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-md);
+}
+
+.stat-card .display-4 {
+    color: var(--sixers-blue);
+    font-weight: 700;
+}
+
+.stat-box {
+    background-color: white;
+    border-left: 4px solid var(--sixers-blue);
+}
+
+.stat-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--sixers-blue);
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: #6c757d;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ======================================
+   Modal Styles
+   ====================================== */
+.modal-content {
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    border: none;
+    box-shadow: var(--box-shadow-lg);
+}
+
+.modal-header {
+    background-color: var(--sixers-blue);
+    color: white;
+    border-bottom: none;
+}
+
+.modal-footer {
+    border-top: none;
+}
+
+.btn-close {
+    filter: brightness(0) invert(1);
+}
+
+/* ======================================
+   Timeline Section
+   ====================================== */
+.timeline {
+    position: relative;
+    padding: 20px 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background-color: var(--sixers-blue);
+    transform: translateX(-50%);
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.timeline-dot {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: var(--sixers-red);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: var(--box-shadow-sm);
+}
+
+.timeline-content {
+    position: relative;
+    width: 45%;
+    padding: 20px;
+    background-color: white;
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--box-shadow-sm);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: auto;
+}
+
+.timeline-content h3 {
+    margin-top: 0;
+    color: var(--sixers-blue);
+    font-size: 1.25rem;
+}
+
+.timeline-image {
+    width: 100%;
+    height: 100px;
+    object-fit: cover;
+    border: 3px solid var(--sixers-blue);
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* ======================================
+   Legacy Cards
+   ====================================== */
+.legacy-card {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    border-radius: var(--border-radius-md);
+}
+
+.legacy-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-md);
+}
+
+.legacy-image {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border: 4px solid var(--sixers-blue);
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* ======================================
+   Player Profile Cards
+   ====================================== */
+.player-profile-card {
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.player-profile-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-md);
+}
+
+.player-profile-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 4px solid var(--sixers-blue);
+    box-shadow: var(--box-shadow-sm);
+}
+
+/* ======================================
+   Gallery Styles
+   ====================================== */
+.gallery-card {
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-sm);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    height: 250px;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform var(--transition-medium);
+}
+
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+    display: flex;
+    align-items: flex-end;
+    padding: 20px;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--box-shadow-md);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.1);
+}
+
+.gallery-card:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-info {
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+.gallery-info h5 {
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.gallery-info p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.gallery-icon {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color: var(--sixers-blue);
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+}
+
+/* ======================================
+   History Image Styles
+   ====================================== */
+.history-image {
+    position: relative;
+    height: 100%;
+    min-height: 300px;
+}
+
+.history-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 107, 182, 0.8);
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* ======================================
+   Player Detail Page
+   ====================================== */
+.player-hero {
+    background: linear-gradient(135deg, var(--sixers-blue) 0%, var(--sixers-navy) 100%);
+    color: white;
+    padding: 80px 0;
+}
+
+.player-image-container {
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+    box-shadow: var(--box-shadow-lg);
+}
+
+.player-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: var(--sixers-red);
+    color: white;
+    font-weight: bold;
+    font-size: 2.5rem;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow-md);
+    border: 3px solid white;
+}
+
+.nav-tabs .nav-link {
+    color: #495057;
+    font-weight: 600;
+    padding: 12px 20px;
+    border: none;
+    border-bottom: 3px solid transparent;
+}
+
+.nav-tabs .nav-link.active {
+    color: var(--sixers-blue);
+    background-color: transparent;
+    border-bottom: 3px solid var(--sixers-blue);
+}
+
+.nav-tabs .nav-link:hover:not(.active) {
+    border-color: transparent;
+    color: var(--sixers-blue);
+}
+
+/* ======================================
+   Footer
+   ====================================== */
+footer {
+    background-color: #212529;
+}
+
+.social-links a {
+    transition: transform var(--transition-fast);
+    display: inline-block;
+}
+
+.social-links a:hover {
+    transform: translateY(-3px);
+}
+
+/* ======================================
+   Responsive Adjustments
+   ====================================== */
+@media (max-width: 992px) {
+    .timeline::before {
+        left: 30px;
+    }
+
+    .timeline-dot {
+        left: 30px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 60px);
+        margin-left: 60px !important;
+    }
+
+    .player-number {
+        width: 60px;
+        height: 60px;
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 80px 0;
+    }
+
+    .position-filters, .gallery-filters {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .position-filter, .filter-btn {
+        margin-bottom: 10px;
+    }
+
+    .player-card .card-img-top {
+        height: 220px;
+    }
+
+    .gallery-card {
+        height: 200px;
+    }
+
+    .nav-tabs .nav-link {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        padding: 60px 0;
+    }
+
+    .display-3 {
+        font-size: 2.5rem;
+    }
+
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .display-5 {
+        font-size: 1.75rem;
+    }
+
+    .player-number {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+        top: 10px;
+        right: 10px;
+    }
+}
