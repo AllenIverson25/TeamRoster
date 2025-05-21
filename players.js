@@ -90,7 +90,7 @@ const players = [
         number: 5,
         age: 23,
         height: "5'11\"",
-        photo: "https://www.basketball-reference.com/req/202106291/images/players/claxtcr01.jpg",
+        photo: "imgs/speedy.jpg",
         hiddenDetail: "Rookie in the 2001-2002 season who provided depth at the point guard position."
     },
     {
@@ -130,7 +130,7 @@ const players = [
         number: 33,
         age: 32,
         height: "6'10\"",
-        photo: "https://www.basketball-reference.com/req/202106291/images/players/blounco01.jpg",
+        photo: "imgs/Corie .png",
         hiddenDetail: "Veteran center who provided defensive depth in the frontcourt."
     }
 ];
