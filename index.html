@@ -61,19 +61,31 @@
                 <!-- Video Background -->
                 <div class="video-background">
                     <div class="video-foreground">
-                        <video src="allen.mp4" autoplay loop controls></video>
+                        <video src="allen.mp4" autoplay loop muted playsinline preload="auto"></video>
                     </div>
                 </div>
 
                 <!-- Hero Content -->
                 <div class="container position-relative">
-                    <div class="row align-items-center min-vh-100">
-                        <div class="col-lg-6 text-center text-lg-start hero-content">
-                            <h1 class="display-4 fw-bold text-white mb-4">2001-2002 Philadelphia 76ers</h1>
-                            <p class="lead text-white mb-4">The legendary team that followed their Eastern Conference championship season. Led by Allen Iverson and featuring a roster of defensive specialists and role players.</p>
-                            <div class="hero-buttons">
-                                <a href="roster.html" class="btn btn-light btn-lg px-4 me-md-2">Meet The Team</a>
-                                <a href="about.html" class="btn btn-outline-light btn-lg px-4">Team History</a>
+                    <div class="row min-vh-100">
+                        <div class="col-12 hero-content-wrapper top-content">
+                            <div class="hero-content text-center">
+                                <div class="team-logo-medium mb-3">
+                                    <img src="https://cdn.nba.com/logos/nba/1610612755/primary/L/logo.svg" alt="76ers Logo" class="img-fluid">
+                                </div>
+                                <h1 class="display-4 fw-bold text-white mb-3">2001-2002 76ers</h1>
+                                <div class="hero-divider mx-auto mb-4"></div>
+                                <p class="text-white mb-4 hero-text">
+                                    Led by <span class="highlight-text">Allen Iverson</span>, featuring defensive specialists and role players who defined an era of Philadelphia basketball.
+                                </p>
+                                <div class="hero-buttons">
+                                    <a href="roster.html" class="btn btn-primary px-4 me-3">
+                                        <i class="fas fa-users me-2"></i>Meet The Team
+                                    </a>
+                                    <a href="about.html" class="btn btn-outline-light px-4">
+                                        <i class="fas fa-history me-2"></i>Team History
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -183,5 +195,64 @@
         <!-- Custom JavaScript -->
         <script src="players.js"></script>
         <script src="roster.js"></script>
+
+        <!-- Video Preload and Autoplay Script -->
+        <script>
+            // Preload the video before DOM is fully loaded
+            const videoPreload = new Image();
+            videoPreload.src = "allen.mp4";
+
+            // Handle video playback when DOM is loaded
+            document.addEventListener('DOMContentLoaded', function() {
+                const video = document.querySelector('video');
+
+                // Make sure video is muted (required for autoplay)
+                video.muted = true;
+
+                // Set video to play as soon as possible
+                video.setAttribute('preload', 'auto');
+                video.setAttribute('autoplay', '');
+                video.setAttribute('playsinline', '');
+
+                // Force play on page load
+                function forcePlay() {
+                    const playPromise = video.play();
+
+                    if (playPromise !== undefined) {
+                        playPromise.catch(error => {
+                            console.error('Video play error:', error);
+                            // Try again after a short delay
+                            setTimeout(() => {
+                                video.play();
+                            }, 100);
+                        });
+                    }
+                }
+
+                // Try multiple approaches to ensure video plays
+
+                // 1. Play immediately
+                forcePlay();
+
+                // 2. Play when metadata is loaded
+                video.addEventListener('loadedmetadata', forcePlay);
+
+                // 3. Play when enough data is available
+                video.addEventListener('canplay', forcePlay);
+
+                // 4. Play when page becomes visible
+                document.addEventListener('visibilitychange', function() {
+                    if (document.visibilityState === 'visible') {
+                        forcePlay();
+                    }
+                });
+
+                // 5. Add animation to hero content after video starts
+                video.addEventListener('playing', function() {
+                    const heroContent = document.querySelector('.hero-content');
+                    heroContent.classList.add('animated');
+                });
+            });
+        </script>
     </body>
 </html>

@@ -1,9 +1,4 @@
 
-// js/roster.js
-// ===============================================
-// Renders the 76ers roster and handles filtering/sorting
-// ===============================================
-
 document.addEventListener('DOMContentLoaded', () => {
   // ----- DOM element references -----
   const grid = document.getElementById('rosterGrid') // container for all player cards
