@@ -6,8 +6,7 @@
     --sixers-blue-dark: #005a9c;
     --sixers-red: #ed174c;
     --sixers-red-dark: #d01543;
-    --sixers-cream: #f9f9f1;
-    --sixers-gray: #c4ced4;
+
     --sixers-navy: #002b5c;
     --transition-fast: 0.3s ease;
     --transition-medium: 0.5s ease;
@@ -109,31 +108,7 @@ h1, h2, h3, h4, h5, h6 {
 /* ======================================
    Hero Sections
    ====================================== */
-.hero-section {
-    background: linear-gradient(rgba(0, 107, 182, 0.8), rgba(0, 107, 182, 0.9)), url('https://cdn.nba.com/manage/2021/08/GettyImages-72403926-scaled-e1629913452308-784x523.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 120px 0;
-    margin-bottom: 30px;
-    position: relative;
-    overflow: hidden;
-}
 
-.hero-section::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(135deg, rgba(0, 107, 182, 0.9) 0%, rgba(0, 43, 92, 0.8) 100%);
-    z-index: 1;
-}
-
-.hero-section .container {
-    position: relative;
-    z-index: 2;
-}
 
 /* Video Hero Section */
 .video-hero-section {
@@ -393,23 +368,23 @@ video {
    Player Cards
    ====================================== */
 .player-card {
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    overflow: hidden;
+    transition: all 0.4s ease;
     border: none;
-    border-radius: var(--border-radius-md);
-    background-color: white;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+    box-shadow: 0 8px 25px rgba(0, 107, 182, 0.1);
 }
 
 .player-card:hover {
-    transform: translateY(-8px);
-    box-shadow: var(--box-shadow-md);
+    transform: translateY(-15px);
+    box-shadow: 0 20px 40px rgba(0, 107, 182, 0.2);
 }
 
 .player-card .card-img-top {
-    height: 280px;
+    height: 320px;
     object-fit: cover;
-    border-bottom: 3px solid var(--sixers-blue);
-    transition: transform var(--transition-medium);
+    border-radius: 20px 20px 0 0;
+    transition: transform 0.5s ease;
 }
 
 .player-card:hover .card-img-top {
@@ -418,32 +393,144 @@ video {
 
 .jersey-number {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: var(--sixers-red);
+    top: 15px;
+    right: 15px;
+    background: linear-gradient(135deg, var(--sixers-red) 0%, #ff1744 100%);
     color: white;
-    font-weight: bold;
-    padding: 5px 10px;
+    font-weight: 900;
     border-radius: 50%;
-    font-size: 1.2rem;
-    width: 40px;
-    height: 40px;
+    font-size: 1.4rem;
+    width: 50px;
+    height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: var(--box-shadow-sm);
-    z-index: 2;
+    box-shadow: 0 4px 15px rgba(237, 23, 76, 0.4);
+    z-index: 3;
+    transition: transform 0.3s ease;
 }
 
+.player-card:hover .jersey-number {
+    transform: scale(1.1) rotate(5deg);
+}
+
+.badge-position {
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    margin: 0.5rem 0;
+}
+
+.badge-pos-PG { background: linear-gradient(135deg, #28a745 0%, #20c997 100%); color: white; }
+.badge-pos-SG { background: linear-gradient(135deg, #17a2b8 0%, #6f42c1 100%); color: white; }
+.badge-pos-SF { background: linear-gradient(135deg, #ffc107 0%, #fd7e14 100%); color: #212529; }
+.badge-pos-PF { background: linear-gradient(135deg, #dc3545 0%, #e83e8c 100%); color: white; }
+.badge-pos-C { background: linear-gradient(135deg, #6c757d 0%, #495057 100%); color: white; }
+
 .more-info-btn {
-    transition: all var(--transition-fast);
-    border-radius: 50px;
-    padding: 0.375rem 1.25rem;
+    background: linear-gradient(135deg, var(--sixers-blue) 0%, var(--sixers-navy) 100%);
+    border: none;
+    border-radius: 25px;
+    padding: 0.6rem 1.5rem;
+    font-weight: 600;
+    color: white;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
 }
 
 .more-info-btn:hover {
-    transform: scale(1.05);
-    box-shadow: var(--box-shadow-sm);
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(0, 107, 182, 0.4);
+}
+
+/* Allen Iverson Special Star */
+.iverson-card::after {
+    content: '⭐';
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    font-size: 1.5rem;
+    z-index: 3;
+    animation: twinkle 2s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+    0% { opacity: 0.5; transform: scale(1); }
+    100% { opacity: 1; transform: scale(1.1); }
+}
+
+/* ======================================
+   Enhanced Roster Grid & Animations
+   ====================================== */
+#rosterGrid {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Staggered animation for cards */
+.player-card {
+    animation: slideInCard 0.6s ease forwards;
+    opacity: 0;
+}
+
+.player-card:nth-child(1) { animation-delay: 0.1s; }
+.player-card:nth-child(2) { animation-delay: 0.2s; }
+.player-card:nth-child(3) { animation-delay: 0.3s; }
+.player-card:nth-child(4) { animation-delay: 0.4s; }
+.player-card:nth-child(5) { animation-delay: 0.5s; }
+.player-card:nth-child(6) { animation-delay: 0.6s; }
+.player-card:nth-child(7) { animation-delay: 0.7s; }
+.player-card:nth-child(8) { animation-delay: 0.8s; }
+
+@keyframes slideInCard {
+    from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Enhanced Grid Layout */
+#rosterGrid .col-md-6 {
+    transition: all 0.3s ease;
+}
+
+/* Loading State */
+.roster-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.loading-spinner {
+    width: 60px;
+    height: 60px;
+    border: 4px solid rgba(0, 107, 182, 0.1);
+    border-left: 4px solid var(--sixers-blue);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 /* ======================================
@@ -460,11 +547,11 @@ video {
 /* ======================================
    Filter Buttons
    ====================================== */
-.position-filters, .gallery-filters {
+.position-filters {
     margin-bottom: 20px;
 }
 
-.position-filter, .filter-btn {
+.position-filter {
     border-color: var(--sixers-blue);
     color: var(--sixers-blue);
     border-radius: 50px;
@@ -472,12 +559,12 @@ video {
     transition: all var(--transition-fast);
 }
 
-.position-filter:hover, .filter-btn:hover {
+.position-filter:hover {
     transform: translateY(-2px);
     box-shadow: var(--box-shadow-sm);
 }
 
-.position-filter.active, .filter-btn.active {
+.position-filter.active {
     background-color: var(--sixers-blue);
     color: white;
     box-shadow: var(--box-shadow-sm);
@@ -572,29 +659,7 @@ video {
     border-left: 4px solid var(--sixers-blue);
 }
 
-.modal-body .stat-box {
-    background-color: white;
-    border: 1px solid #dee2e6;
-    transition: transform 0.2s ease;
-}
 
-.modal-body .stat-box:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--box-shadow-sm);
-}
-
-.modal-body .stat-value {
-    color: var(--sixers-blue);
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-.modal-body .stat-label {
-    font-size: 0.8rem;
-    color: #6c757d;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
 
 /* ======================================
    Timeline Section
@@ -660,26 +725,7 @@ video {
     box-shadow: var(--box-shadow-sm);
 }
 
-/* ======================================
-   Legacy Cards
-   ====================================== */
-.legacy-card {
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    border-radius: var(--border-radius-md);
-}
 
-.legacy-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--box-shadow-md);
-}
-
-.legacy-image {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border: 4px solid var(--sixers-blue);
-    box-shadow: var(--box-shadow-sm);
-}
 
 /* ======================================
    Player Profile Cards
@@ -703,77 +749,36 @@ video {
     box-shadow: var(--box-shadow-sm);
 }
 
-/* ======================================
-   Gallery Styles
-   ====================================== */
-.gallery-card {
-    position: relative;
-    border-radius: var(--border-radius-md);
-    overflow: hidden;
-    box-shadow: var(--box-shadow-sm);
-    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
-    height: 250px;
+/* Conditional Styling Classes for Object-Oriented Requirements */
+.veteran-card {
+    border-left: 4px solid #ffc107 !important;
+    background: linear-gradient(135deg, #fff 0%, #fff9e6 100%);
 }
 
-.gallery-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform var(--transition-medium);
+.veteran-badge {
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
-.gallery-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
-    display: flex;
-    align-items: flex-end;
-    padding: 20px;
-    opacity: 0;
-    transition: opacity var(--transition-fast);
+.rookie-badge {
+    font-size: 0.7rem;
+    font-weight: bold;
+    letter-spacing: 0.5px;
 }
 
-.gallery-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--box-shadow-md);
+.point-guard-card {
+    border-top: 3px solid #198754;
 }
 
-.gallery-card:hover img {
-    transform: scale(1.1);
+.center-card {
+    border-top: 3px solid #6c757d;
 }
 
-.gallery-card:hover .gallery-overlay {
-    opacity: 1;
-}
-
-.gallery-info {
+.single-digit-jersey .jersey-number {
+    background-color: var(--sixers-red);
     color: white;
-    text-align: center;
-    width: 100%;
-}
-
-.gallery-info h5 {
-    margin-bottom: 5px;
-    font-weight: 600;
-}
-
-.gallery-info p {
-    margin-bottom: 10px;
-    font-size: 0.9rem;
-    opacity: 0.8;
-}
-
-.gallery-icon {
-    display: inline-block;
-    width: 40px;
-    height: 40px;
-    background-color: var(--sixers-blue);
-    border-radius: 50%;
-    line-height: 40px;
-    text-align: center;
+    font-weight: bold;
 }
 
 /* ======================================
@@ -806,10 +811,7 @@ video {
 
 
 
-.nav-tabs .nav-link:hover:not(.active) {
-    border-color: transparent;
-    color: var(--sixers-blue);
-}
+
 
 /* ======================================
    Footer
@@ -852,16 +854,13 @@ footer {
 }
 
 @media (max-width: 768px) {
-    .hero-section {
-        padding: 80px 0;
-    }
 
-    .position-filters, .gallery-filters {
+    .position-filters {
         flex-wrap: wrap;
         justify-content: center;
     }
 
-    .position-filter, .filter-btn {
+    .position-filter {
         margin-bottom: 10px;
     }
 
@@ -869,20 +868,10 @@ footer {
         height: 220px;
     }
 
-    .gallery-card {
-        height: 200px;
-    }
 
-    .nav-tabs .nav-link {
-        padding: 8px 12px;
-        font-size: 0.9rem;
-    }
 }
 
 @media (max-width: 576px) {
-    .hero-section {
-        padding: 60px 0;
-    }
 
     .display-3 {
         font-size: 2.5rem;
