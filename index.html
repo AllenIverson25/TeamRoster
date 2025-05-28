@@ -196,63 +196,6 @@
         <script src="players.js"></script>
         <script src="roster.js"></script>
 
-        <!-- Video Preload and Autoplay Script -->
-        <script>
-            // Preload the video before DOM is fully loaded
-            const videoPreload = new Image();
-            videoPreload.src = "allen.mp4";
-
-            // Handle video playback when DOM is loaded
-            document.addEventListener('DOMContentLoaded', function() {
-                const video = document.querySelector('video');
-
-                // Make sure video is muted (required for autoplay)
-                video.muted = true;
-
-                // Set video to play as soon as possible
-                video.setAttribute('preload', 'auto');
-                video.setAttribute('autoplay', '');
-                video.setAttribute('playsinline', '');
-
-                // Force play on page load
-                function forcePlay() {
-                    const playPromise = video.play();
-
-                    if (playPromise !== undefined) {
-                        playPromise.catch(error => {
-                            console.error('Video play error:', error);
-                            // Try again after a short delay
-                            setTimeout(() => {
-                                video.play();
-                            }, 100);
-                        });
-                    }
-                }
-
-                // Try multiple approaches to ensure video plays
-
-                // 1. Play immediately
-                forcePlay();
-
-                // 2. Play when metadata is loaded
-                video.addEventListener('loadedmetadata', forcePlay);
-
-                // 3. Play when enough data is available
-                video.addEventListener('canplay', forcePlay);
-
-                // 4. Play when page becomes visible
-                document.addEventListener('visibilitychange', function() {
-                    if (document.visibilityState === 'visible') {
-                        forcePlay();
-                    }
-                });
-
-                // 5. Add animation to hero content after video starts
-                video.addEventListener('playing', function() {
-                    const heroContent = document.querySelector('.hero-content');
-                    heroContent.classList.add('animated');
-                });
-            });
-        </script>
+       
     </body>
 </html>

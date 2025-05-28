@@ -1,17 +1,4 @@
-/**
- * Player Data for the 2001-2002 Philadelphia 76ers
- *
- * This file contains an array of player objects with information about each player
- * on the 2001-2002 Philadelphia 76ers roster. Each player object includes:
- * - firstName: Player's first name
- * - lastName: Player's last name
- * - position: Player's position (PG, SG, SF, PF, C)
- * - number: Jersey number
- * - age: Player's age during the 2001-2002 season
- * - height: Player's height
- * - photo: URL to player's photo
- * - hiddenDetail: Additional information about the player (revealed by "More Info" button)
- */
+
 const players = [
     {
         firstName: "Allen",
