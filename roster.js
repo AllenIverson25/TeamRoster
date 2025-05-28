@@ -1,9 +1,4 @@
 
-// js/roster.js
-// ===============================================
-// Renders the 76ers roster and handles filtering/sorting
-// ===============================================
-
 // Player Class Definition (required for rubric)
 class Player {
   constructor(firstName, lastName, position, number, age, height, photo, hiddenDetail) {
@@ -16,7 +11,6 @@ class Player {
     this.age = age
     this.height = height
     this.image = photo // Required: image property
-    this.photo = photo
     this.hiddenDetail = hiddenDetail // Required: hidden detail
   }
 }
@@ -56,7 +50,7 @@ class Team {
       col.innerHTML = `
         <div class="${cardClass}">
           <div class="position-relative">
-            <img src="${p.photo}" class="card-img-top" alt="${p.firstName} ${p.lastName}">
+            <img src="${p.image}" class="card-img-top" alt="${p.name}">
             <div class="jersey-number">${p.number}</div>
           </div>
           <div class="card-body text-center">
@@ -79,13 +73,10 @@ class Team {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-  // ----- DOM element references -----
-  const grid = document.getElementById('rosterGrid') // container for all player cards
-  const positionFilters = document.querySelectorAll('.position-filter') // position filter buttons
-  const sortSelect = document.getElementById('sortOptions') // dropdown for sorting options
+  const positionFilters = document.querySelectorAll('.position-filter')
+  const sortSelect = document.getElementById('sortOptions')
 
-  // Fail-safe: exit if the roster container is missing
-  if (!grid) {
+  if (!document.getElementById('rosterGrid')) {
     console.error('Could not find #rosterGrid in the DOM.')
     return
   }
@@ -95,17 +86,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Convert player data to Player objects and add to team
   players.forEach(playerData => {
-    const player = new Player(
-      playerData.firstName,
-      playerData.lastName,
-      playerData.position,
-      playerData.number,
-      playerData.age,
-      playerData.height,
-      playerData.photo,
-      playerData.hiddenDetail
-    )
-    sixersTeam.players.push(player)
+    sixersTeam.players.push(new Player(
+      playerData.firstName, playerData.lastName, playerData.position,
+      playerData.number, playerData.age, playerData.height,
+      playerData.photo, playerData.hiddenDetail
+    ))
   })
 
   // Create the modal for player details if it doesn't exist
@@ -131,34 +116,25 @@ document.addEventListener('DOMContentLoaded', () => {
     document.body.insertAdjacentHTML('beforeend', modalHTML)
   }
 
-  // ----- Function to render the roster -----
   const render = list => {
     sixersTeam.render(list)
-
-    // Add click events to all "More Info" buttons
     document.querySelectorAll('.more-info-btn').forEach(button => {
       button.addEventListener('click', showPlayerDetails)
     })
   }
 
-  // ----- Function to show player details in modal -----
   const showPlayerDetails = event => {
-    // Get the player from the button's data attribute using 'this'
     const playerIndex = event.currentTarget.getAttribute('data-player-index')
     const player = sixersTeam.currentList[playerIndex]
-
-    // Get modal elements
     const modalTitle = document.getElementById('playerModalLabel')
     const modalBody = document.getElementById('playerModalBody')
 
-    // Set modal title
     modalTitle.textContent = `${player.firstName} ${player.lastName} - #${player.number}`
 
-    // Set modal content
     modalBody.innerHTML = `
       <div class="row">
         <div class="col-md-5 mb-3 mb-md-0">
-          <img src="${player.photo}" class="img-fluid rounded shadow" alt="${player.firstName} ${player.lastName}">
+          <img src="${player.image}" class="img-fluid rounded shadow" alt="${player.name}">
           <div class="text-center mt-3">
             <div class="jersey-display">
               <span class="jersey-number-large">${player.number}</span>
@@ -180,99 +156,48 @@ document.addEventListener('DOMContentLoaded', () => {
               <span>Age:</span>
               <span>${player.age}</span>
             </li>
-            <li class="list-group-item d-flex justify-content-between">
-              <span>Jersey Number:</span>
-              <span>#${player.number}</span>
-            </li>
           </ul>
-
-          <div class="card bg-light mb-3">
+          <div class="card bg-light">
             <div class="card-body">
               <h6 class="card-subtitle mb-2 text-muted">Player Highlight</h6>
               <p class="card-text">${player.hiddenDetail}</p>
             </div>
           </div>
         </div>
-      </div>
-    `
+      </div>`
 
-    // Show the modal using Bootstrap's Modal API
-    const playerModal = new bootstrap.Modal(document.getElementById('playerModal'))
-    playerModal.show()
+    new bootstrap.Modal(document.getElementById('playerModal')).show()
   }
 
-  // ----- Function to get position-specific styling -----
   const getPositionClass = position => {
-    const classes = {
-      'PG': 'bg-success',  // Point Guard - Green
-      'SG': 'bg-info',     // Shooting Guard - Blue
-      'SF': 'bg-warning',  // Small Forward - Yellow
-      'PF': 'bg-danger',   // Power Forward - Red
-      'C': 'bg-secondary'  // Center - Gray
-    }
-
+    const classes = { 'PG': 'bg-success', 'SG': 'bg-info', 'SF': 'bg-warning', 'PF': 'bg-danger', 'C': 'bg-secondary' }
     return classes[position] || 'bg-primary'
   }
 
-  // ----- Function to filter and sort the list -----
   const applyFilters = () => {
-    // Get current position filter
     const position = document.querySelector('.position-filter.active').getAttribute('data-position')
+    let list = position === 'All' ? [...sixersTeam.players] : sixersTeam.players.filter(p => p.position === position)
+    const [key, dir] = sortSelect.value.split('-')
 
-    // Filter by position
-    let list = position === 'All'
-      ? [...sixersTeam.players]
-      : sixersTeam.players.filter(p => p.position === position)
-
-    // Parse sort key and direction from dropdown
-    const [key, dir] = sortSelect.value.split('-') // e.g., "lastName-asc" → key="lastName", dir="asc"
-
-    // Sort list by selected key
     list.sort((a, b) => {
-      if (key === 'age') {
-        // Numeric sort for age
-        return dir === 'asc' ? a.age - b.age : b.age - a.age
-      }
+      if (key === 'age') return dir === 'asc' ? a.age - b.age : b.age - a.age
 
-      // Alphabetical sort for firstName, lastName, or position
-      const A = (
-        key === 'firstName'
-          ? a.firstName
-          : key === 'lastName'
-          ? a.lastName
-          : a.position
-      ).toLowerCase()
-
-      const B = (
-        key === 'firstName'
-          ? b.firstName
-          : key === 'lastName'
-          ? b.lastName
-          : b.position
-      ).toLowerCase()
-
+      const A = (key === 'firstName' ? a.firstName : key === 'lastName' ? a.lastName : a.position).toLowerCase()
+      const B = (key === 'firstName' ? b.firstName : key === 'lastName' ? b.lastName : b.position).toLowerCase()
       return dir === 'asc' ? A.localeCompare(B) : B.localeCompare(A)
     })
 
-    // Re-render updated list
     render(list)
   }
 
-  // ----- Attach event listeners -----
   positionFilters.forEach(filter => {
     filter.addEventListener('click', () => {
-      // Update active class on buttons
       positionFilters.forEach(btn => btn.classList.remove('active'))
       filter.classList.add('active')
-
-      // Apply filters and re-render
       applyFilters()
     })
   })
 
-  // On sort change, re-apply filters
   sortSelect.addEventListener('change', applyFilters)
-
-  // ----- Initial render on page load -----
-  render(sixersTeam.players) // 'players' is loaded from players.js
+  render(sixersTeam.players)
 })
